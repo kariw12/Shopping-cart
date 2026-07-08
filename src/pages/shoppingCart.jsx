@@ -12,11 +12,11 @@ import { useAppContext } from "../hooks/appContextHook";
 import CreditCardForm from "../components/creditCardForm";
 import Loader from "../components/loader";
 
-function Cart({products, setActiveProduct}){
+function Cart(){
 
     const navigate = useNavigate();
 
-    const {cart, setCart, filterProducts, setActive} = useAppContext();
+    const {cart, setCart, filterProducts} = useAppContext();
 
     const [cardNumber, setCardNumber] = useState("");
     const [cardDate, setCardDate] = useState("");
@@ -100,11 +100,9 @@ function Cart({products, setActiveProduct}){
     }
 
     const goToProduct = (id) => {
-        const item = products.find(item => item.id === id);
-        setActiveProduct(item);
-        setActive("product");
-        navigate("/product");
+        navigate(`/product/${id}`);
     }
+
 
 
     return(

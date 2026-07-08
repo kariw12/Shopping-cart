@@ -1,6 +1,4 @@
 
-import { useEffect } from "react"
-
 import { useNavigate } from "react-router-dom";
 
 import Card from "../components/card";
@@ -9,12 +7,11 @@ import { useAppContext } from "../hooks/appContextHook";
 
 import "../styles/home.css"
 
-function HomePage({products, setProducts, setActiveProduct, 
-                    filterView, setFilterView, sortPrice, setSortPrice}){
+function HomePage({products, filterView, setFilterView, sortPrice, setSortPrice}){
 
    const navigate = useNavigate();
 
-   const {filterProducts, setCart, cart, setActive} = useAppContext();
+   const {filterProducts, setCart, cart} = useAppContext();
 
 
     const search = () =>{
@@ -26,30 +23,7 @@ function HomePage({products, setProducts, setActiveProduct,
     }
     
     
-    useEffect(() => {
-
-        const fetchData = async () => {
-            try{
-                const local = localStorage.getItem('data');
-                if(local){
-                    setProducts(JSON.parse(local));
-                } else{
-                    const response = await fetch('https://fakestoreapi.com/products');
-                    const data = await response.json();
-                    if(data){
-                        setProducts(data)
-                        localStorage.setItem('data', JSON.stringify(data));
-                    }
-                }
-            } catch(error){
-                console.log(error)
-            }
-        }
-
-        fetchData()
-
-        
-    }, [])
+    
 
     
     const handleClick = (id, title, price, description, category, image, itemNumber) => {
@@ -77,10 +51,7 @@ function HomePage({products, setProducts, setActiveProduct,
     }
 
     const goProduct = (id) => {
-        const item = products.find(item => item.id === id);
-        setActiveProduct(item);
-        setActive("product")
-        navigate("/product");
+        navigate(`/product/${id}`);
     }
 
     const sortByPrice = (items) => {

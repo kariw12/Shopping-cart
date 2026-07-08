@@ -1,14 +1,27 @@
 import { useState } from "react"
 
+import { useParams, Navigate } from "react-router-dom";
+
 import "../styles/productPage.css"
 
 import { useAppContext } from "../hooks/appContextHook";
 
-function ProductPage({activeProduct}){
+function ProductPage({ products, loading }){
+
+    const { id } = useParams();
+    const activeProduct = products.find(item => String(item.id) === id);
 
     const {cart, setCart} = useAppContext();
 
     const [itemNumber, setItemNumber] = useState(1);
+
+    if(loading){
+        return <div>Loading</div>
+    }
+
+    if(!activeProduct){
+        return <Navigate to="/" replace />
+    }
 
     const handleClick = (id, title, price, description, category, image) => {
         const filterCart = cart.filter(item => (

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import HomePage from "./pages/homePage";
 import Cart from "./pages/shoppingCart";
@@ -20,14 +20,38 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 function App(){
 
     const [products, setProducts] = useState([]);
+    const [productsLoading, setProductsLoading] = useState(true);
     
-    const [activeProduct, setActiveProduct] = useState(null);
 
     const [filterView, setFilterView] = useState("all");
     const [sortPrice, setSortPrice] = useState("normal");
 
 
+    useEffect(() => {
 
+        const fetchData = async () => {
+            try{
+                const local = localStorage.getItem('data');
+                if(local){
+                    setProducts(JSON.parse(local));
+                } else{
+                    const response = await fetch('https://fakestoreapi.com/products');
+                    const data = await response.json();
+                    if(data){
+                        setProducts(data)
+                        localStorage.setItem('data', JSON.stringify(data));
+                    }
+                }
+            } catch(error){
+                console.log(error)
+            }
+            setProductsLoading(false);
+        }
+
+        fetchData()
+
+        
+    }, [])
 
 
     const router = createBrowserRouter([
@@ -36,15 +60,15 @@ function App(){
             children: [
                 {
                     path: "/", element: <HomePage products={products} setProducts={setProducts}
-                    setActiveProduct={setActiveProduct} filterView={filterView} setFilterView={setFilterView}
+                    filterView={filterView} setFilterView={setFilterView}
                     sortPrice={sortPrice} setSortPrice={setSortPrice}/>
                 },
                 {
-                    path: "/Cart", element: <Cart products={products} setActiveProduct={setActiveProduct} />
+                    path: "/Cart", element: <Cart />
                 },
                 {
-                    path: "/product",
-                    element: <ProductPage activeProduct={activeProduct}/>
+                    path: "/product/:id",
+                    element: <ProductPage products={products} loading={productsLoading}/>
                 }
             ]
         }
