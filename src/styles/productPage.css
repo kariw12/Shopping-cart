@@ -1,0 +1,153 @@
+.productPage-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.left-side-prod-page{
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 100px;
+    align-items: center;
+    height: calc(100vh - 120px);
+    gap: 30px;
+}
+
+
+.image-view-prod-page img{
+    width: 500px;
+    max-height: 400px;
+}
+
+.image-view-prod-page{
+    width: 500px;
+    border: 1px solid #cccccc;
+    padding: 100px;
+}
+
+.product-title-prod-page{
+    font-size: larger;
+    color: white;
+    
+}
+
+.right-side-prod-page{
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 100px;
+}
+
+.prod-describe{
+    font-size: x-large;
+    color: white;
+    padding: 25px;
+    min-height: 250px;
+}
+
+.price-and-cart{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.prod-price{
+    font-size: x-large;
+    color: white;
+}
+
+.prod-add-to-cart{
+    background-color: lightgreen;
+    padding: 8px;
+    border-radius: 10px;
+    padding: 8px;
+    max-width: 120px;
+    font-size: large;
+}
+
+.prod-add-to-cart:hover{
+    background-color: green;
+    cursor: pointer;
+}
+
+.adding-multiple{
+    display: flex;
+    gap: 5px;
+}
+
+.item-number{
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3px;
+    height: 36px;
+}
+
+.minus-button{
+    background-color: lightcoral;
+    width: 35px;
+    border-radius: 5px;
+    font-size: x-large;
+}
+
+.pluss-button{
+    background-color: lightgreen;
+    width: 35px;
+    border-radius: 5px;
+    font-size: x-large;
+}
+
+.pluss-button:hover{
+    cursor: pointer;
+}
+
+.minus-button:hover{
+    cursor: pointer;
+}
+
+
+@media (max-width: 915px){
+    .productPage-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+
+    .right-side-prod-page{
+        padding-top:0;
+    }
+
+    .left-side-prod-page{
+        padding-top: 20px;
+        height: auto;
+    }
+
+    .price-and-cart{
+        padding-top:0;
+    }
+}
+@media (max-width: 600px){
+    .image-view-prod-page img{
+        width: 250px;
+    }
+
+    .image-view-prod-page{
+        width: 350px;
+        border: 1px solid #cccccc;
+    }
+}
+
+@media (max-width: 400px){
+    .image-view-prod-page img{
+        width: 200px;
+    }
+
+    .image-view-prod-page{
+        width: 300px;
+        border: 1px solid #cccccc;
+    }
+}

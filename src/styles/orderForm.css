@@ -1,0 +1,107 @@
+/* GLOBAL FIX (important) */
+* {
+  box-sizing: border-box;
+}
+
+.creditForm-container {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.credit-form {
+  width: 100%;
+  max-width: 1000px;
+  padding: 3rem;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* INPUTS */
+.credit-form input {
+  width: 100%;              /* fill edge */
+  padding: 18px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.credit-form input:-webkit-autofill,
+.credit-form input:-webkit-autofill:hover,
+.credit-form input:-webkit-autofill:focus,
+.credit-form input:-webkit-autofill:active {
+    -webkit-text-fill-color: white !important;        /* text color */
+    -webkit-box-shadow: inset 0 0 0 1000px #3e3e42 !important; /* background */
+    background-clip: padding-box !important;
+    transition: background-color 0s ease-in-out !important;      /* prevent flicker */
+}
+
+
+/* ROWS */
+.fullname,
+.card-details {
+  display: flex;
+  gap: 1rem;
+}
+
+/* MAKE ROW INPUTS EVEN */
+.fullname input,
+.card-details input {
+  width: 100%;
+  flex: 1;                  /* equal width */
+}
+
+/* TOTAL */
+.subTotal {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  color: white;
+}
+
+/* BUTTON */
+.order-now {
+  width: 100%;              /* full width button */
+  padding: 18px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  cursor: pointer;
+}
+
+.order-now:hover {
+  background: #4338ca;
+}
+
+.credit-form input{
+    color: white;
+}
+
+.cvc{
+    font-style: italic;
+}
+
+
+.error{
+  color: red;
+  font-weight: 600;
+  font-size: large;
+}
+
+
+@media (max-width: 1300px){
+  .credit-form {
+    padding: 0;
+  }
+
+  .creditForm-container{
+    min-height: auto;
+    padding-bottom: 25px;;
+  }
+}
+

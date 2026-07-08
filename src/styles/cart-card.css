@@ -1,0 +1,120 @@
+
+.cardCart-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 700px;           
+    max-width: 100%;
+
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.left-side{
+    display: flex;
+    gap: 20px;
+}
+
+.image-cart-container {
+    width: 120px;
+    height: 120px;
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+.image-cart-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.cart-title:hover{
+    cursor: pointer;
+    color: orange;
+}
+
+.cart-price:hover{
+    cursor: pointer;
+    color: orange;
+}
+
+
+.image-cart-container:hover{
+    cursor: pointer;
+}
+
+
+
+.rigth-side{
+    display: flex;
+    align-items: center;
+}
+
+.trash {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.trash:hover{
+    color: red;
+}
+
+
+.add-or-take{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.pluss{
+    font-size: x-large;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.minus{
+    font-size: xx-large;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.minus:hover{
+    cursor: pointer;
+}
+
+.pluss:hover{
+    cursor: pointer;
+}
+
+
+
+
+@media (max-width: 520px){
+    .cardCart-container{
+        flex-direction: column;
+    }
+
+    .left-side{
+        flex-direction: column;
+    }
+
+    .image-cart-container{
+        align-self: center;
+    }
+
+    .details{
+        align-items: center;
+        text-align: center;
+    }
+
+   
+}

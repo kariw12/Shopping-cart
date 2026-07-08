@@ -1,0 +1,152 @@
+.navbar{
+    background-color: #6C27F5;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+}
+
+
+
+.logo{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+}
+
+.searchBar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.inputLook{
+    color: white;
+    background-color: white;
+    height: 35px;
+    width: 450px;
+    border-radius: 10px;
+    border: 2px solid black;
+    color: black;
+    padding: 10px;
+}
+
+
+.inputLook:focus {
+  outline: none;
+  box-shadow: none; 
+}
+
+.linksContainer{
+    display: flex;
+    width: 15%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linkToShop{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.linkToHome{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.cart:hover{
+    color: aqua;
+}
+
+.dropdown{
+    display: none;
+}
+
+.drop-option{
+    position: absolute;
+    background-color: gray;
+}
+
+
+.active{
+    border-bottom: 3px solid darkblue;
+}
+
+
+.cart-wrapper {
+    position: relative; 
+}
+
+
+.cart-count {
+    position: absolute;   
+    top: -4px;           
+    right: -8px;           
+    background-color: red; 
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;  
+    z-index: 10;         
+}
+
+.cart,
+.cart-wrapper {
+  border-bottom: none;  
+}
+
+
+@media (max-width: 875px){
+    .logo{
+        display: none;
+    }
+
+
+    .linksContainer{
+        width: 20%;
+        gap: 5px;
+        justify-content: space-evenly;
+    }
+  
+
+    .searchBar{
+        width: 80%;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+}
+
+
+
+@media (max-width: 60px){
+    .linksContainer{
+        width: 100%;
+        gap: 5px;
+        justify-content: space-evenly;
+    }
+
+    .searchBar{
+        width: 60%;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
